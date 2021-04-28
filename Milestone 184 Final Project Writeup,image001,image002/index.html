@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+.MsoChpDefault
+	{font-family:"Arial",sans-serif;}
+.MsoPapDefault
+	{line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:14.0pt;line-height:115%'>CS184 Final Project Milestone:
+Iridescent Materials</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:14.0pt;line-height:115%'>Bethany Lu, Jose Alfaro, Michael
+Chou, Aashika Jhawar</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:13.0pt;line-height:115%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:13.0pt;line-height:115%'>Progress Thus Far</span></b></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>In order to get started with our iridescent
+modeling, we had to get a better understanding of how we can attempt to render
+such materials. After our research, we found that a simple way to get started
+is to apply a thin-film layer. This additional layer causes light waves that
+are emitted after interference to scatter multiple times in between the
+original material and the thin-film which creates a colorful, iridescent
+effect. </span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>We first focused on incorporating the optical
+path difference (difference in distance between the two light paths with
+respect to the outgoing wave) and the change in reflection that occurs because
+of the multiple wavelengths impact. Through our research, we found that we can
+compute the outgoing reflectance using the average of the waves’ amplitudes.
+This led us to an infinite sum of the different waves that we could simplify
+using the airy summation:  </span></p>
+
+<p class=MsoNormal align=center style='margin-left:.5in;text-align:center'><span
+lang=EN><img width=469 height=232 id=image2.png
+src="Milestone%20184%20Final%20Project%20Writeup_files/image001.gif"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN><img
+width=473 height=395 id=image3.png
+src="Milestone%20184%20Final%20Project%20Writeup_files/image002.gif"></span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>Using this knowledge, we decided to focus on
+how these light waves create a more complex reflectance than what we had seen
+before in project 3-2. Due to the light waves varying amplitudes and different
+shifts we determined that the Fresnel reflection used in part 2 could be
+updated with an airy reflection function that would allow us to produce this
+thin film effect.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>We needed to update the Fresnel equations to
+take into account the refractive bounces of the thin-film layer as well as the
+phase shift of subsequent reflected rays via reflection and optical path
+difference (OPD) for this phase shift is what causes the iridescent effect.
+Using the phase shift equation and Snell’s law, we factored in an offset to
+account for the phase shifts and optical path difference: </span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN><img
+width=624 height=244 id=image1.png
+src="Milestone%20184%20Final%20Project%20Writeup_files/image003.gif"></span></p>
+
+<p class=MsoNormal><b><span lang=EN>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:12.0pt;line-height:115%'>Reflect on Progress relative to your
+plan</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:12.0pt;line-height:115%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=EN>Overall, we had a harder time ramping up than
+we had expected and spent more time understanding the theory and different
+implementations than we had planned to. As a result, we were not able to finish
+a complete first draft of our code like we had planned. However, the extra
+research has set us up well to keep on track and we now have a solid
+understanding of what our workload looks like and our end goals. </span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN
+style='font-size:12.0pt;line-height:115%'>Update your Work Plan</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN>3rd week (04/27 - 04/04):</span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Attend office hours to work through implementation</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Finish up first draft of project in next few days</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Debug and finalize code.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN>4th week (05/04 - 05/11):</span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Finish up final ends</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Compile presentation</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Create video walkthrough</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:12.0pt;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Publish project webpage</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>
